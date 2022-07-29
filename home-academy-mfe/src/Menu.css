@@ -1,13 +1,10 @@
 .menu {
-	background-color: rgb(214,183,158,.95);
+	background-color: #d6b79e;
 	position: fixed;
 	padding: 2rem;
 	left: 0px;
 	transition: transform 0.3s ease-in-out;
 	z-index: 1000;
-	box-shadow: .2em 3px .3em gray;
-	top: 0px;
-	bottom: 0px;
 }
 
 .menu-open {
@@ -17,22 +14,10 @@
 .menu-closed {
   transform: translateX(-100%);
 }
-
-.menu ul {
-	padding: 0px;
-	margin: 0px;
+.menu-text{
+	color: #274F87;
+	text-decoration: none;
 }
 
-.menu li {
-	padding: 1rem;
-	border: thin transparent solid;
-	list-style: none;
-}
 
-.menu li:hover {
-	border: thin gray solid;
-	border-radius: .2em;
-	background-color: rgba(255,255,255,.3);
-	cursor: pointer;
-}
 
