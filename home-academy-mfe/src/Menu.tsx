@@ -1,6 +1,6 @@
 import './Menu.css'
 import styled from "styled-components";
-import { Transition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 
 const MenuLabel = styled.label`
   position: fixed;
@@ -54,15 +54,15 @@ const MenuIcon = styled.span`
   }
 `;
 
-
 const Menu = (click: boolean) => {
 	const menuClassName='menu menu-' + (click ? 'open': 'closed')
 	return (
         <div className={menuClassName} >
           <ul>
-               <li><a href="/">Home</a></li>
-               <li><a href="/howtobuy">How to buy a home</a></li>
-               <li><a href="/purpose">Our Purpose</a></li>
+		<Link to='/'><li>Home</li></Link>
+		<Link to='/howtobuy'><li>How to buy a home</li></Link>
+		<Link to='/purpose'><li>Our Purpose</li></Link>
+		<Link to='/newpage'><li>a new page sample</li></Link>
           </ul>
         </div>
       )
