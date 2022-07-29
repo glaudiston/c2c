@@ -1,0 +1,19 @@
+.menu {
+	background-color: #d6b79e;
+	position: fixed;
+	padding: 2rem;
+	left: 0px;
+	transition: transform 0.3s ease-in-out;
+	z-index: 1000;
+}
+
+.menu-open {
+  transform: translateX(0);
+}
+
+.menu-closed {
+  transform: translateX(-100%);
+}
+
+
+

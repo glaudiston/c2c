@@ -4,7 +4,7 @@ import Home from "./Home";
 import HowToBuy from "./HowToBuy";
 import Purpose from "./Purpose";
 
-const Routes: React.VoidFunctionComponent = () => {
+const Routes: React.FC<{}> = _ => {
 	return (
 	<Router>
 		<ReactRoutes>
