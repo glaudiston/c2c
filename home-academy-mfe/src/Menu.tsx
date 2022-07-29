@@ -1,3 +1,4 @@
+import './Menu.css'
 import styled from "styled-components";
 import { Transition } from 'react-transition-group';
 
@@ -55,17 +56,16 @@ const MenuIcon = styled.span`
 
 
 const Menu = (click: boolean) => {
-	return <Transition in={click} timeout={500}>
-          {state => (
-            <div className={'menu menu-' + state} >
-              <ul>
+	const menuClassName='menu menu-' + (click ? 'open': 'closed')
+	return (
+        <div className={menuClassName} >
+          <ul>
                <li><a href="/">Home</a></li>
                <li><a href="/howtobuy">How to buy a home</a></li>
                <li><a href="/purpose">Our Purpose</a></li>
-              </ul>
-            </div>
-          )}
-	</Transition>
+          </ul>
+        </div>
+      )
 }
 
 export { Menu, MenuLabel, MenuIcon };
