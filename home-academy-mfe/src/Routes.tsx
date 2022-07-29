@@ -4,6 +4,7 @@ import Home from "./Home";
 import HowToBuy from "./HowToBuy";
 import Purpose from "./Purpose";
 import NewPage from "./NewPage";
+import StartPage from "./StartPage";
 
 const Routes: React.FC<{}> = _ => {
 	return (
@@ -13,6 +14,7 @@ const Routes: React.FC<{}> = _ => {
 			<Route path="/howtobuy" element={<HowToBuy />} />
 			<Route path="/purpose" element={<Purpose />} />
 			<Route path="/newpage" element={<NewPage />} />
+			<Route path="/start" element={<StartPage />} />
 		</ReactRoutes>
 	</Router>
 	)

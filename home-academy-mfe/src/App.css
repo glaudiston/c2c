@@ -42,3 +42,37 @@ div#div-btn button {
 	font-size: 1.1rem;
 	padding: 0.75rem;
 }
+
+label.optlbl {
+	text-align: center;
+	display: block;
+	padding: 1rem;
+	border: thin solid gray;
+	margin: .5rem;
+	border-radius: 1.15rem;
+	width: 70%;
+}
+
+label.optlbl:hover {
+	background-color: #FFD966;
+}
+
+label.optlbl:hover {
+	background-color: #FFD966;
+}
+
+input[type="radio"]:checked + label {
+	background-color: #51c6cc;
+}
+
+div.div-opt > div {
+	margin: 0;
+	padding: 0;
+	display: block ruby;
+	text-align: center;
+}
+
+div.div-opt input {
+	visibility: hidden;
+	position: absolute;
+}
