@@ -1,5 +1,9 @@
 package com.ojolabs.c2c.homeacademy.rest
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import com.ojolabs.c2c.homeacademy.config.JacksonConfiguration
+import com.ojolabs.c2c.homeacademy.model.Comment
 import com.ojolabs.c2c.homeacademy.model.Content
 import com.ojolabs.c2c.homeacademy.service.ContentService
 import org.springframework.http.HttpStatus
@@ -8,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
-import java.util.UUID
 
 @RestController
 @RequestMapping("/content")
@@ -16,13 +19,48 @@ class ContentResource(
     private val dealService: ContentService
 ) {
 
-//        private val logger = KotlinLogging.logger {}
-
     @RequestMapping("/{contentId}", method = [RequestMethod.GET])
     @ResponseStatus(value = HttpStatus.OK)
     suspend fun getContent(
         @PathVariable contentId: String
     ): Content? {
-        return Content(UUID.randomUUID(), title = "Sample content", description = "This is a sample content description", comments = emptyList())
+        val eventMapper: ObjectMapper = JacksonConfiguration().objectMapper()
+        return eventMapper.readValue<Content>(
+            this::class.java.getResource("/samples/content.json")!!.readText(Charsets.UTF_8)
+        )
+    }
+
+    @RequestMapping("/{contentId}/comments", method = [RequestMethod.GET])
+    @ResponseStatus(value = HttpStatus.OK)
+    suspend fun getComments(
+        @PathVariable contentId: String
+    ): List<Comment>? {
+        val eventMapper: ObjectMapper = JacksonConfiguration().objectMapper()
+        val content = eventMapper.readValue<Content>(this::class.java.getResource("/samples/content.json")!!.readText(Charsets.UTF_8))
+        val comments = ArrayList<Comment>()
+        for(commentId in content.comments) {
+            val comment = eventMapper.readValue<Comment>(
+                this::class.java.getResource("/samples/${commentId}.json")!!.readText(Charsets.UTF_8)
+            )
+            comments.add(comment)
+        }
+        return comments
+    }
+
+    @RequestMapping("/{commentId}/replies", method = [RequestMethod.GET])
+    @ResponseStatus(value = HttpStatus.OK)
+    suspend fun getReplies(
+        @PathVariable commentId: String
+    ): List<Comment>? {
+        val eventMapper: ObjectMapper = JacksonConfiguration().objectMapper()
+        val comment = eventMapper.readValue<Comment>(this::class.java.getResource("/samples/${commentId}.json")!!.readText(Charsets.UTF_8))
+        val replies = ArrayList<Comment>()
+        for(replyId in comment.replies) {
+            val reply = eventMapper.readValue<Comment>(
+                this::class.java.getResource("/samples/${replyId}.json")!!.readText(Charsets.UTF_8)
+            )
+            replies.add(reply)
+        }
+        return replies
     }
 }
