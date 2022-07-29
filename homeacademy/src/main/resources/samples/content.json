@@ -2,6 +2,7 @@
   "id":"832f1c36-1ffe-46ac-9dfb-d7b865f9e580",
   "title":"Sample content",
   "description":"This is a sample content description",
+  "video": "https://www.youtube.com/watch?v=FxGoTtoFvfs",
   "text":"<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</html>",
   "comments":["3e6cbe8f-c252-4a78-a1bb-55025b0409ae"]
 }
