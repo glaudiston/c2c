@@ -54,7 +54,6 @@ const MenuIcon = styled.span`
   }
 `;
 
-
 const Menu = (click: boolean) => {
 	const menuClassName='menu menu-' + (click ? 'open': 'closed')
 	return (

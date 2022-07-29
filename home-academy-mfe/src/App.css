@@ -32,3 +32,13 @@ h2 {
   position: absolute;
 }
 
+div#div-btn {
+	text-align: center;
+}
+div#div-btn button {
+	background-color: #FFD966;
+	border: thin solid black;
+	border-radius: .2em;
+	font-size: 1.1rem;
+	padding: 0.75rem;
+}
