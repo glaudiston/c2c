@@ -5,6 +5,9 @@
 	left: 0px;
 	transition: transform 0.3s ease-in-out;
 	z-index: 1000;
+	box-shadow: .2em 3px .3em gray;
+	top: 0px;
+	bottom: 0px;
 }
 
 .menu-open {
@@ -15,5 +18,21 @@
   transform: translateX(-100%);
 }
 
+.menu ul {
+	padding: 0px;
+	margin: 0px;
+}
 
+.menu li {
+	padding: 1rem;
+	border: thin transparent solid;
+	list-style: none;
+}
+
+.menu li:hover {
+	border: thin gray solid;
+	border-radius: .2em;
+	background-color: rgba(255,255,255,.3);
+	cursor: pointer;
+}
 
