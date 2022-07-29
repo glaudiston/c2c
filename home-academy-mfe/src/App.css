@@ -1,0 +1,56 @@
+.App{
+	background-color: white;
+	width: calc(100vw - 6rem);
+	padding: 3rem;
+}
+
+img{
+	border-radius: 0.75rem;
+	width: 100%;
+	max-height: calc(50vh);
+	object-fit: cover;
+}
+h1 {
+	font-size: 1.5rem;
+}
+h2 {
+}
+
+.menu {
+	background-color: #d6b79e;
+	position: fixed;
+	padding: 2rem;
+	left: 0px;
+}
+
+.menu-exited {
+	display: none;
+	left: calc(-100vw);
+}
+
+.menu-exiting {
+	animation: fadeOutToLeft 0.5s;
+}
+
+.menu-entering {
+	animation: fadeInFromLeft 0.5s;
+	left: calc(-100vw);
+}
+
+.menu-entered {
+}
+
+
+@keyframes fadeInFromLeft {
+     to {
+        opacity: 1;
+	left: 0px;
+     }
+}
+
+@keyframes fadeOutToLeft {
+	to {
+		left: calc(-50vw);
+		opacity: 0;
+	}
+}
