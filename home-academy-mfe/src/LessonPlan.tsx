@@ -4,6 +4,11 @@ import Head from "./PageHeader";
 import { Link } from 'react-router-dom';
 import YoutubeVideo from "./YoutubeVideo"
 
+enum LessonStatus {
+	Pending,
+	Started,
+	Done
+}
 interface ModuleItem {
 	id: string
 	title: string
@@ -11,6 +16,7 @@ interface ModuleItem {
 	estimatTimeInMinutes: number
 	link: string
 	isExternal: boolean
+	status: LessonStatus
 }
 
 interface Module {
@@ -32,6 +38,7 @@ function getModuleData(): Module[] {
 					estimatTimeInMinutes: 45,
 					link: "/buy-overview",
 					isExternal: false,
+					status: LessonStatus.Done,
 				},
 				{
 					id: "real-state-Terminology",
@@ -40,6 +47,7 @@ function getModuleData(): Module[] {
 					estimatTimeInMinutes: 15,
 					link: 'https://learn.g2.com/real-estate-terms',
 					isExternal: true,
+					status: LessonStatus.Done
 				},
 				{
 					id: "agents",
@@ -48,6 +56,7 @@ function getModuleData(): Module[] {
 					estimatTimeInMinutes: 30,
 					link: "https://en.wikipedia.org/wiki/Real_estate_agent",
 					isExternal: true,
+					status: LessonStatus.Started
 				},
 				{
 					id: "financing",
@@ -56,6 +65,7 @@ function getModuleData(): Module[] {
 					estimatTimeInMinutes: 45,
 					link: "/financing",
 					isExternal: true,
+					status: LessonStatus.Pending
 				},
 			],
 		},
@@ -70,6 +80,7 @@ function getModuleData(): Module[] {
 					estimatTimeInMinutes: 10,
 					link: "/fix-credit-score",
 					isExternal: false,
+					status: LessonStatus.Pending
 				},
 				{
 					id: "downpay-assist",
@@ -78,6 +89,7 @@ function getModuleData(): Module[] {
 					estimatTimeInMinutes: 20,
 					link: "/downpay-assist",
 					isExternal: false,
+					status: LessonStatus.Pending
 				},
 				{
 					id: "neighbour",
@@ -86,6 +98,7 @@ function getModuleData(): Module[] {
 					estimatTimeInMinutes: 10,
 					link: "/neighbour",
 					isExternal: false,
+					status: LessonStatus.Pending
 				},
 				{
 					id: "penalty-withdral",
@@ -94,6 +107,7 @@ function getModuleData(): Module[] {
 					estimatTimeInMinutes: 20,
 					link: "/penalty-withdral",
 					isExternal: false,
+					status: LessonStatus.Pending
 				}
 			]
 		}
@@ -111,10 +125,10 @@ function LessonPlan() {
 					<h3 key={'h3-'+module.id}>Module {index +1}: {module.title}</h3>
 					<ul key={'ul-'+module.id}>
 						{module.items.map((item, index) => {
-						return <li key={'li-'+module.id+'.'+item.id}>
+						return <li key={'li-'+module.id+'.'+item.id} className={'lesson-status-'+item.status} >
 						  <Link key={'link-'+module.id+'.'+item.id} to={item.link}>
 						    <p key={'button-'+module.id+'.'+item.id}>{item.title}</p>
-						    <p key={'button-'+module.id+'.'+item.id}>{item.estimatTimeInMinutes} min</p>
+						    <p key={'estimated-time-'+module.id+'.'+item.id}>{item.estimatTimeInMinutes} min</p>
 						  </Link>
 					      </li>
 						})}

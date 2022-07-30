@@ -34,3 +34,18 @@
 	background-color: #FFD966;
 	box-shadow: 0px 0px 5px gray;
 }
+
+.lesson-module .lesson-status-0::before {
+	color: #f5f5f5;
+	text-shadow: 0px 0px 1px black;
+}
+
+.lesson-module .lesson-status-0 {
+	border-left: none;
+}
+.lesson-module .lesson-status-1 {
+	border-left: none;
+}
+.lesson-module .lesson-status-1::before {
+	text-shadow: 0px 0px 3px black;
+}
