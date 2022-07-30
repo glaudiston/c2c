@@ -11,7 +11,7 @@ function HowToBuy() {
 			<div>
 			
 			<h1>
-				4 step example
+				You can start with 4 basic steps
 			</h1>	
 			<p>
 				using this example you can see how to purchase a house in 4 basic steps.
