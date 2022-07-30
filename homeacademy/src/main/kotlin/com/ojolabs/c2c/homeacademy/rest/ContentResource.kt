@@ -19,24 +19,24 @@ class ContentResource(
     private val dealService: ContentService
 ) {
 
-    @RequestMapping("/{contentId}", method = [RequestMethod.GET])
+    @RequestMapping("/{subject}", method = [RequestMethod.GET])
     @ResponseStatus(value = HttpStatus.OK)
     suspend fun getContent(
-        @PathVariable contentId: String
+        @PathVariable subject: String
     ): Content? {
         val eventMapper: ObjectMapper = JacksonConfiguration().objectMapper()
         return eventMapper.readValue<Content>(
-            this::class.java.getResource("/samples/content.json")!!.readText(Charsets.UTF_8)
+            this::class.java.getResource("/samples/${subject}/content.json")!!.readText(Charsets.UTF_8)
         )
     }
 
-    @RequestMapping("/{contentId}/comments", method = [RequestMethod.GET])
+    @RequestMapping("/{subject}/comments", method = [RequestMethod.GET])
     @ResponseStatus(value = HttpStatus.OK)
     suspend fun getComments(
-        @PathVariable contentId: String
+        @PathVariable subject: String
     ): List<Comment>? {
         val eventMapper: ObjectMapper = JacksonConfiguration().objectMapper()
-        val content = eventMapper.readValue<Content>(this::class.java.getResource("/samples/content.json")!!.readText(Charsets.UTF_8))
+        val content = eventMapper.readValue<Content>(this::class.java.getResource("/samples/${subject}/content.json")!!.readText(Charsets.UTF_8))
         val comments = ArrayList<Comment>()
         for(commentId in content.comments) {
             val comment = eventMapper.readValue<Comment>(
