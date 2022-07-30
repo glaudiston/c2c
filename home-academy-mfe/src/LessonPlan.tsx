@@ -15,32 +15,24 @@ function LessonPlan() {
 			</h3>	
 			<ul>
 				<li>
-				  <Link to="/overview">
-				    <button>
-					  Overview of the homebuying process
-					  </button>
-	    	      </Link>
+				  <Link to="/buy-overview">
+				    <button>Overview of the homebuying process</button>
+				      </Link>
 				</li>
 				<li>
-				<Link to="/terminology">
-				    <button>
-					Real Estate Terminology
-					</button>
-	    	      </Link>
+					<a target="_new" href="https://learn.g2.com/real-estate-terms" >
+					    <button>Real Estate Terminology</button>
+					</a>
 				</li>
 				<li>
-				<Link to="/agents">
-				    <button>
-					Real Estate Agents
-					</button>
-	    	      </Link>
+					<a target="_new" href="https://en.wikipedia.org/wiki/Real_estate_agent">
+						<button>Real Estate Agents</button>
+					</a>
 				</li>
 				<li>
-				<Link to="/financing">
-				    <button>
-					Financing
-					</button>
-	    	      </Link>
+					<Link to="/financing">
+					    <button>Financing</button>
+					</Link>
 				</li>
 			</ul>
 		
