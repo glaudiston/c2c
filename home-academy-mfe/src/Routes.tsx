@@ -7,6 +7,8 @@ import NewPage from "./NewPage";
 import StartPage from "./StartPage";
 import LessonPlan from "./LessonPlan";
 import Financing from "./Financing";
+import EquityByAgents from "./EquityByAgents";
+import EquityLinksPage from "./EquityLinksPage"
 
 const Routes: React.FC<{}> = _ => {
     return (
@@ -17,8 +19,10 @@ const Routes: React.FC<{}> = _ => {
             <Route path="/purpose" element={<Purpose />} />
             <Route path="/newpage" element={<NewPage />} />
             <Route path="/start" element={<StartPage />} />
-			<Route path="/lesson-plan" element={<LessonPlan />} />
-			<Route path="/financing" element={<Financing />} />
+	    <Route path="/lesson-plan" element={<LessonPlan />} />
+	    <Route path="/financing" element={<Financing />} />
+	    <Route path="/equity-agents" element={<EquityByAgents />} />
+	    <Route path="/equity-links"  element={<EquityLinksPage />} />
         </ReactRoutes>
     </Router>
     )

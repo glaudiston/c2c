@@ -61,8 +61,11 @@ const Menu = (click: boolean) => {
           <ul>
 		<Link to='/'><li>Home</li></Link>
 		<Link to='/howtobuy'><li>How to buy a home</li></Link>
+		<Link to='/financing'><li>Financing</li></Link>
 		<Link to='/purpose'><li>Our Purpose</li></Link>
-		{/* <Link to='/newpage'><li>a new page sample</li></Link> */}
+		<Link to='/start'><li>Start learning</li></Link>
+		<Link to='/equity-agents'><li>Equity Agents Rank</li></Link>
+		<Link to='/equity-links'><li>Equity links</li></Link>
           </ul>
         </div>
       )
