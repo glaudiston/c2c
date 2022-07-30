@@ -1,3 +1,4 @@
+import "./LessonPlan.css"
 import { useState } from "react";
 import Head from "./PageHeader";
 import { Link } from 'react-router-dom';
@@ -106,13 +107,14 @@ function LessonPlan() {
 		<div className="App">
 		    {Head("Buying a House 101", click, setClick )}
 			{modules.map((module, index) => {
-				return <div key={'div-'+module.id}>
+				return <div key={'div-'+module.id} className="lesson-module" >
 					<h3 key={'h3-'+module.id}>Module {index +1}: {module.title}</h3>
 					<ul key={'ul-'+module.id}>
 						{module.items.map((item, index) => {
 						return <li key={'li-'+module.id+'.'+item.id}>
 						  <Link key={'link-'+module.id+'.'+item.id} to={item.link}>
-						    <button key={'button-'+module.id+'.'+item.id}>{item.title}</button>
+						    <p key={'button-'+module.id+'.'+item.id}>{item.title}</p>
+						    <p key={'button-'+module.id+'.'+item.id}>{item.estimatTimeInMinutes} min</p>
 						  </Link>
 					      </li>
 						})}
